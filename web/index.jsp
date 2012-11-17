@@ -1,15 +1,19 @@
 
 <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 
-<%
-
-%>
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login MRB</title>
     </head>
+    
+    <script type="text/javascript" src="JavaScript/jquery-1.8.2.js" ></script>
+    <script type="text/javascript" src="JavaScript/jquery-ui-1.9.1.custom.js" ></script>
+    <script type="text/css" src="Css/jquery-ui-1.9.1.custom.css" ></script>
+    
+    
+   
+    
     <body id="imagenLogin" class="index" style="background-repeat: repeat">
 
 <form name="menuLogin" id="menuLogin"method="POST">
