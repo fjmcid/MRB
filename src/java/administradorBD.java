@@ -11,9 +11,9 @@ import java.util.Properties;
 public class administradorBD {
 
     private String CONNECTION_STRING = "jdbc:mysql://";
-    private String URL = "localhost:3306/test";
-    private String USER = "roger";
-    private String PASSWORD = "toast";
+    private String URL = "localhost:3306/MRB";
+    private String USER = "root";
+    private String PASSWORD = "admin";
     private final String DRIVER = "com.mysql.jdbc.Driver";
     private Connection conn;
     private static administradorBD singleton;

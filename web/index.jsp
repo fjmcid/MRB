@@ -8,19 +8,41 @@
     </head>
     
     <script type="text/javascript" src="JavaScript/jquery-1.8.2.js" ></script>
-    <script type="text/javascript" src="JavaScript/jquery-ui-1.9.1.custom.js" ></script>
-    <script type="text/css" src="Css/jquery-ui-1.9.1.custom.css" ></script>
+    <script type="text/javascript" src="JavaScript/jquery-ui-1.9.1.custom.js" ></script> 
+    <link rel="stylesheet" type="text/css" href="Css/jquery-ui-1.9.1.custom.css" />
     
-    
+    <script type="text/javascript" >
+        
+    $(document).ready(function(){
+        
+        $("#myDiv").show('slow');
+        $("#myDiv").show(500);    
+        $("#myDiv").css("color","Red"); 
+        
+        $("#myButton").click(function(){         
+           // alert("yes");   
+            
+        });
+        
+        $("#myDiv2").dialog();    
+        
+        
+    }); //end
+      
+        
+    </script>
    
     
     <body id="imagenLogin" class="index" style="background-repeat: repeat">
 
 <form name="menuLogin" id="menuLogin"method="POST">
 
-    <div style="display:none">
-           
-        </div>
+    <div id="myDiv" style="display:none">test</div>
+    
+    <button id="myButton">Push</button>
+    
+    <div id="myDiv2" style="display:none">test</div>
+    
 
        <ul id="nav">
            <li class="current" ><a><input style="color: white; height:20px; " type="submit"  class="botonPersonalizado" value="Log In" name="Ingresar" id="Ingresar" /></a></li>
