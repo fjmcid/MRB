@@ -97,16 +97,31 @@ public class administradorBD {
         return s.execute(p_query + whereClause);
     }
 
-    public boolean insertQuery(String p_query, String[] p_parameters) throws Exception {
-        PreparedStatement s = getConnection(false).prepareStatement("");
+    public boolean insertQuery(String p_table, Properties p_parameters) throws Exception {
         if (p_parameters != null) {
-            int index = 1;
-            for (String value : p_parameters) {
-                s.setString(index, value);
-                index++;
+            PreparedStatement s = getConnection(false).prepareStatement("");
+            String p_query = String.format("INSERT INTO %s ", p_table);
+            if (p_parameters != null) {
+                int index = 1;
+                String columns = "(";
+                String values = "(";
+                for (Object value : p_parameters.keySet()) {
+                    String val = (String) value;
+                    if (val != null) {
+                        columns += val + ",";
+                        values += "?,";
+                        s.setString(index, p_parameters.getProperty(val));
+                        index++;
+                    }
+                }
+                columns = columns.substring(0, columns.length() - 1) + ")";
+                values = values.substring(0, values.length() - 1) + ")";
+                p_query += String.format("%s VALUES %s", columns, values);
             }
+            return s.execute(p_query);
+        } else {
+            return false;
         }
-        return s.execute(p_query);
     }
 
     public boolean deleteQuery(String p_table, String p_id) throws Exception {
@@ -169,16 +184,14 @@ public class administradorBD {
             resultSetData = new String[numColumns][rows.size() + 1];
 
             for (int i = 0; i < rows.size(); i++) {
-                String[] row=null;
-                if(i == 0)
-                {
+                String[] row = null;
+                if (i == 0) {
                     row = columnNames;
-                }else
-                {
-                    row = rows.get(i-1);
-                }                
+                } else {
+                    row = rows.get(i - 1);
+                }
                 for (int j = 0; j < columnNames.length; j++) {
-                    resultSetData[j][i] = row[j];
+                    resultSetData[i][j] = row[j];
                 }
             }
         }
