@@ -34,7 +34,7 @@ public class Administrator {
         String[][] matriz= null;
         try
         {
-            matriz = administradorBD.getInstance().getResultSetData(administradorBD.getInstance().selectQuery(administradorBD.SELECT_STRING, null));
+            matriz = administradorBD.getInstance().getResultSetData(administradorBD.getInstance().selectQuery(administradorBD.SELECT_STRING_MRB, null));
         }catch(Exception exc)
         {
             matriz = new String[1][1];

@@ -17,7 +17,8 @@ public class administradorBD {
     private final String DRIVER = "com.mysql.jdbc.Driver";
     private Connection conn;
     private static administradorBD singleton;
-    public static final String SELECT_STRING = "SELECT * FROM MRB";
+    public static final String SELECT_STRING_MRB = "SELECT * FROM MRB";
+    public static final String SELECT_STRING_DISCREPANCY_CODE = "SELECT * FROM DEFECT WHERE DEFECT_ID < 19 AND DEFECT_ID > 0";
 
     private administradorBD() {
     }
