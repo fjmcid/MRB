@@ -1,3 +1,5 @@
+package Negocio;
+
 import java.util.Properties;
 
 public class Administrator {
