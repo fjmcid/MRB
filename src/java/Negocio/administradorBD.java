@@ -22,7 +22,7 @@ public class administradorBD {
     public static final String SELECT_STRING_MRB = "SELECT * FROM MRB";
     public static final String SELECT_STRING_DISCREPANCY_CODE = "SELECT * FROM DEFECT WHERE DEFECT_ID < 19 AND DEFECT_ID > 0";
     public static final String SELECT_STRING_MODELS="SELECT MODEL_TITLE FROM MODEL";
-    public static final String SELECT_STRING_DEFECT="SELECT DEFECT_TITLE FROM DEFECT";
+    public static final String SELECT_STRING_DEFECT="SELECT DEFECT_ID, DEFECT_TITLE FROM DEFECT WHERE DEFECT_ID < 19 AND DEFECT_ID > 0";
     
     private administradorBD() {
     }
