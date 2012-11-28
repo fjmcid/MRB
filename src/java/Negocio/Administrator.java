@@ -64,7 +64,7 @@ public class Administrator {
         //gestor.DeleteLinea(idLinea); //este metodo va a eliminar el registro en la base de datos mediante el id que le corresponde
     }
 
-    public boolean insertarLinea() {
+    public int insertarLinea() {
         try {
             String p_table = "MRB";
             Properties p_parameters = new Properties();
@@ -92,12 +92,12 @@ public class Administrator {
             p_parameters.put("REGULATOY_COMPLIENCE",""); //si no estan, pueden no incluirse
             p_parameters.put("DISCREPANCY_REPORT_NUMBER",""); //si no estan, pueden no incluirse
             
-            
-            return administradorBD.getInstance().insertQuery(p_table, p_parameters);
+            int rowId = administradorBD.getInstance().insertQuery(p_table, p_parameters);
+            return rowId;
         } catch (Exception exc) {
             //manejar exception.
         } finally {
-            return false;
+            return -1;
         }
     }
 }

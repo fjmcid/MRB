@@ -102,7 +102,7 @@ public class administradorBD {
         return s.execute(p_query + whereClause);
     }
 
-    public boolean insertQuery(String p_table, Properties p_parameters) throws Exception {
+    public int insertQuery(String p_table, Properties p_parameters) throws Exception {
         if (p_parameters != null) {
             PreparedStatement s = getConnection(false).prepareStatement("");
             String p_query = String.format("INSERT INTO %s ", p_table);
@@ -123,9 +123,9 @@ public class administradorBD {
                 values = values.substring(0, values.length() - 1) + ")";
                 p_query += String.format("%s VALUES %s", columns, values);
             }
-            return s.execute(p_query);
+            return s.executeUpdate(p_query, PreparedStatement.RETURN_GENERATED_KEYS);
         } else {
-            return false;
+            throw new Exception("No parameters where added to the insert query.");
         }
     }
 
