@@ -59,6 +59,19 @@ public class Administrator {
         }
         return matriz;
     }
+    
+    public String[][] desplegarModelos()
+    {
+        String[][] matriz = null;
+        try {
+            //obtiene el id y titulo (en ese orden) de la tabla defectos los cuales se encuentren entre el codigo 1 y 18.
+            matriz = administradorBD.getInstance().getResultSetData(administradorBD.getInstance().selectQuery(administradorBD.SELECT_STRING_MODELS, null));
+        } catch (Exception exc) {
+            matriz = new String[1][1];
+            matriz[0][0] = exc.getMessage();
+        }
+        return matriz;
+    }
 
     public void eliminarLinea(int idLinea) {
         //gestor.DeleteLinea(idLinea); //este metodo va a eliminar el registro en la base de datos mediante el id que le corresponde
@@ -80,6 +93,7 @@ public class Administrator {
             p_parameters.put("QUANTITY",""); //digitado
             p_parameters.put("COST_PER_PIECE",""); //digitado
             p_parameters.put("CURRENCY",""); //Dolares
+            p_parameters.put("MODEL_ID","");//Model ID
             p_parameters.put("WHO_TAGGED",""); //personas, lo escogen los usuarios
             p_parameters.put("DISCREPANCY_CODE",""); // codigo de los defectos, eso se sacaria de la tabla defects.
             p_parameters.put("DISPOSITION_DATE",""); //date picker
