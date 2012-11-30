@@ -73,6 +73,22 @@ public class Administrator {
         return matriz;
     }
 
+    public String desplegarPartesXDefecto()
+    {
+        String respuesta="";
+        try {
+            //obtiene el id y titulo (en ese orden) de la tabla defectos los cuales se encuentren entre el codigo 1 y 18.
+            String[][] matriz = null;
+            Properties p_parameter = new Properties();
+            p_parameter.put("DEFECT_ID", "");//aqui se pone el id de defecto. 3-15
+            matriz = administradorBD.getInstance().getResultSetData(administradorBD.getInstance().selectQuery(administradorBD.SelECT_STRING_PARTXDEFECT, p_parameter));
+        } catch (Exception exc) {
+            respuesta = exc.getMessage();
+        }
+        
+        return respuesta;
+    }
+    
     public void eliminarLinea(int idLinea) {
         //gestor.DeleteLinea(idLinea); //este metodo va a eliminar el registro en la base de datos mediante el id que le corresponde
     }
